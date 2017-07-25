@@ -7,10 +7,12 @@
   </head>
   <body>
     <ul>
-      <li>
-        <img src="" alt="">
-        <h4></h4>
-      </li>
+      {{#users}}
+        <li>
+          <img src="{{avatar}}" alt="">
+          <h4>{{name}}</h4>
+        </li>
+      {{/users}}
     </ul>
   </body>
 </html>

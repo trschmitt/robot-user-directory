@@ -9,7 +9,11 @@ app.set("view engine", "mustache");
 app.set("views", path.join(__dirname, "views"));
 
 app.get("/", (req, res) => {
-	res.render("index.mustache", DATA);
+	res.render("users.mustache", DATA);
+});
+
+app.get("/public/styles.css", (req, res) => {
+	res.send(fs.readFileSync("./public/styles.css"));
 });
 
 app.listen(3010, function() {

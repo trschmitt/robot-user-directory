@@ -6,6 +6,16 @@ ul {
 }
 
 li {
-	border: small solid black;
+	border: solid black;
 	list-style: none;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	width: 200px;
+	padding: 20px;
+}
+
+h4 {
+	color: #5cad59;
 }

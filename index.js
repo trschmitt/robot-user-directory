@@ -13,6 +13,14 @@ app.get("/", (req, res) => {
 	res.render("users.mustache", DATA);
 });
 
+app.get("/:username", (req, res) => {
+	let foundUser = DATA.users.find(
+		user => user.username === req.params.username
+	);
+
+	res.render("personal", { users: foundUser });
+});
+
 app.use("/", express.static(path.join(__dirname, "public")));
 
 app.listen(3010, function() {

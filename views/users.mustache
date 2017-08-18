@@ -6,14 +6,27 @@
   </head>
   <body>
     <ul>
-      {{#users}}
-        <li>
-          <a><img src="{{avatar}}" alt=""></a>
-          <h4>{{name}}</h4>
-          <p>{{job}}</p>
-          <p>{{company}}</p>
-        </li>
-      {{/users}}
+      {{ #users }}
+        {{ #job }}
+          <div>
+            <li><img src={{ avatar }}></li>
+            <a href="/{{ id }}">
+              <li class='name'>{{ name }}</li>
+            </a>
+            <li>{{ job }}</li>
+            <li>{{ company }}</li>
+          </div>
+          {{ /job }}
+          {{ ^job }}
+          <div>
+            <li><img src={{ avatar }}></li>
+            <a href="/{{ id }}">
+              <li class='name'>{{ name }}</li>
+            </a>
+            <li class='avail'>Available for Hire</li>
+          </div>
+        {{ /job }}
+      {{ /users }}
     </ul>
   </body>
 </html>

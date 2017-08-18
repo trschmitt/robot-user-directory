@@ -2,16 +2,39 @@
   <head>
     <meta charset="utf-8">
     <title>name of user</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/profile.css">
   </head>
   <body>
-    {{#users}}
-      <section>
-        <img src="{{avatar}}" alt="">
-        <h1>{{name}}</h1>
-        <p>{{address.street_num}}, {{address.street_name}},</p>
-        <p>email, phone</p>
-      </section>
-    {{/users}}
-  </body>
+  <div id="profile">
+    <div id="image">
+      <img src= {{ avatar }}>
+    </div>
+    {{ #job }}
+      <div ="info">
+        <h1>{{ name }}</h1>
+        <p>{{ address.city }}, {{ address.country }} | {{ . }}, {{ company }}</p>
+        <p>{{ email }} | {{ phone }}</p>
+      </div>
+    {{ /job }}
+    {{ ^job }}
+      <div class="info">
+        <h1>{{ name }}</h1>
+        <p>{{ address.city }}, {{ address.country }} | <span id="hireme">Available For Hire</span></p>
+        <p>{{ email }} | {{ phone }}</p>
+      </div>
+    {{ /job }}
+    <div class="other-info">
+      <p id='education'> Education: {{ university }}</p>
+      <div id='skills'>
+        <p> Skills:
+          <ul>
+            {{ #skills }}
+              <li> {{ . }}</li>
+            {{ /skills }}
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
